@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="eng">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+        <title>Matthew's Weather Dashboard</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="jumbotron-fluid text-center">
+                <div class="container">
+                    <h1 class="display-4 text-center">Matthew's Weather Dashboard</h1>
+                </div>
+            </div>
+            <div class="col-3 bg-light">
+                <h2>City Search:</h2>
+                <div class="input-group">
+                    <input class="form-control" type="text">
+                    <div class="input-group-append">
+                        <button type="button" id="add-city">Search</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <ul id="list">
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-8 m-2">
+                <div class="row-12">
+                    <div class="card">
+                        <div id="current-weather" class="card-body">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row-12">
+                    <h2>Weather Forecast</h2>
+                </div>
+
+                <div id="boxes" class="row">
+
+                </div>
+            </div>
+        </div>
+
+        <script src="https://stackpath.bootstrapapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
