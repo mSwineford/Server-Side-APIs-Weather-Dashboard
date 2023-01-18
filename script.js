@@ -46,4 +46,16 @@ function renderCities() {
     };
 }
 
+$("#add-city").on("click", function(event) {
+    event.preventDefault();
+    const city = $("#input").val().trim();
+
+    if (city === "") {
+        return;
+    }
+    cities.push(city);
+    saveCities();
+    renderCities();
+});
+
 
