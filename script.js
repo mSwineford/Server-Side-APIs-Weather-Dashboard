@@ -22,3 +22,28 @@ function init() {
     }
     renderCities();
 }
+
+function saveCities() {
+    localStorage.setItem("cities", JSON.stringify(cities));
+    console.log(localStorage);
+}
+
+function renderCities() {
+    List.empty();
+    for (const i =0; i < cities.length; i++) {
+        const city = cities[i];
+        const addList = $("<li>").text(city);
+        addList.attr("id","listCity");
+        addList.attr("data-city", city);
+        addList.attr("class", "list-group-item");
+        console.log(addList);
+        List.prepend(addList);
+    }
+    if (!city) {
+        return;
+    } else {
+        getWeather(city)
+    };
+}
+
+
