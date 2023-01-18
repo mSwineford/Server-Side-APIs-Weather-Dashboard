@@ -58,4 +58,54 @@ $("#add-city").on("click", function(event) {
     renderCities();
 });
 
+function getWeather(cityArea) {
+    const queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" +cityArea+ "&appid=" +key;
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function(response) {
 
+        cityName = $("<h2>").text(response.name + " " + FormatDate());
+        $("#current-weather").append(cityName);
+
+        const TempValue = parseInt((response.main.temp)* 9/5 -459);
+        const cityTemp = $("<div>").text("Temp: " + TempValue + " F");
+        $("#current-weather").append(cityTemp);
+
+        const cityHumid = $("<div>").text("Humidity: " + response.main.humidity + " %");
+        $("#current-Weather").append(cityHumid);
+
+        const cityWind = $("<div>").text("Wind Speed: " + response.wind.speed + " MPH");
+        $("#current-weather").append(cityWind);
+
+        const Lat = response.coord.lat;
+        const Lon = response.coord.lon;
+
+        const queryURL2 = "https://api.openweathermap.org/data/2.5/uvi?appid=" + key + "&lat=" + Lat + "&lon=" + Lon;
+        $.ajax({
+            url: queryURL2,
+            method: "GET"
+        }).then(function(uvIndex) {
+            const divUV = $("<div>").text(uvIndex.value);
+            const pUV = $("<p>").text("UV Index: ");
+
+            pUV.append(divUV);
+
+            $("#current-weather").append(divUV);
+            console.log(typeof uvIndex.value);
+
+            if(uvIndex.value > 0 && uvIndex.value <=2) {
+                divUV.attr("class", "blue")
+            }  else if (uvIndex.value > 2 && uvIndex.value <=5 ) {
+                divUV.attr("class", "green")
+            } else if (uvIndex.value > 5 && uvIndex.value <= 7 ) {
+                divUV.attr("class","yellow")
+            } else if (uvIndex.value > 7 && uvIndex.value <=10) {
+                divUV.attr("class","red")
+            } else {
+                divUV.attr("class","black");
+            }
+        })
+    });
+    
+}
