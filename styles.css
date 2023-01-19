@@ -1,0 +1,38 @@
+body {
+    background-color: lightgray;
+}
+.card-body {
+    background-color: cadetblue;
+}
+
+.header-title {
+    background-color: steelblue;
+}
+
+.col-12 {
+    background-color: grey;
+}
+
+.row {
+    background-color: lightblue;
+}
+
+.blue {
+    background-color: lightblue;
+}
+
+.green {
+    background-color: yellowgreen;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.red {
+    background-color: red;
+}
+
+.black {
+    background-color: darkred;
+}
